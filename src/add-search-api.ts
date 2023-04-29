@@ -1,8 +1,7 @@
-
-import { PurpleUrlApp } from '../lib/purple-url-app';
 import { Env } from '../config';
-import { unimplemented } from '../utils/utils';
+import { PurpleUrlApp } from '../lib/purple-url-app';
 import { AppRuleProps, AppRuleType } from '../rules';
+import { unimplemented } from '../utils/utils';
 export const addressSearchApiApp = new PurpleUrlApp('Address Search');
 
 const oldApiPath = '/api/address-search-mfe/';
