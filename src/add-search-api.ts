@@ -6,12 +6,12 @@ import { Env } from '../config';
 export const addressSearchApiApp = new PurpleUrlApp('Address Search');
 
 const oldApiPath = '/api/address-search-mfe/';
-const apiPath = '/domain/customer/api/address-search-mfe/';
+const apiPath = '/domain/customer/api/address-search-mfe/'
 const mfePath = '/domain/customer/mfe/address-search-mfe/';
 
 const hostUrls = [
   'https://orbit.iag.com.au',
-  'https://orbit-pnv.iag.com.au',
+  'https://orbit-pnv.iag.com.au'
   'https://orbit-uat.iag.com.au',
   'https://*.iagcloud',
 ].join(' ');
