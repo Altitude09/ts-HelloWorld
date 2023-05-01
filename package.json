@@ -17,7 +17,7 @@
     "upgrade": "npm i cdktf@latest cdktf-cli@latest",
     "upgrade:next": "npm i cdktf@next cdktf-cli@next",
     "eslint": "npx eslint . --fix",
-    "git-add" : "git add"
+    "git-add": "git add ."
   },
   "engines": {
     "node": ">=14.0"
