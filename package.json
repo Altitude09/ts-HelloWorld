@@ -16,7 +16,8 @@
     "test:watch": "jest --watch",
     "upgrade": "npm i cdktf@latest cdktf-cli@latest",
     "upgrade:next": "npm i cdktf@next cdktf-cli@next",
-    "eslint": "npx eslint . --fix"
+    "eslint": "npx eslint . --fix",
+    "git-add" : "git add"
   },
   "engines": {
     "node": ">=14.0"
@@ -28,7 +29,8 @@
   },
   "precommit": [
     "lint",
-    "eslint"
+    "eslint",
+    "git-add"
   ],
   "devDependencies": {
     "@types/jest": "^27.5.1",
