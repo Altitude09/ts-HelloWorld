@@ -3,9 +3,20 @@
     "browser": true,
     "es2021": true
   },
-  "plugins": ["@typescript-eslint","unused-imports", "simple-import-sort"],
+  "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended", "plugin:@typescript-eslint/eslint-recommended"],
+  "overrides": [],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": "latest"
+  },
+  "plugins": ["@typescript-eslint", "unused-imports", "simple-import-sort"],
   "rules": {
     "no-unused-vars": "off", // or "@typescript-eslint/no-unused-vars": "off",
+    "no-undef" : "off",
+    "no-empty-interface" : "off",
+    "no-explicit-any" : "off",
+    "no-irregular-whitespace" : "off",
+    "no-var-requires" : "off",
     "unused-imports/no-unused-imports": "error",
     "unused-imports/no-unused-vars": [
       "warn",

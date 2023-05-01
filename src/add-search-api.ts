@@ -3,7 +3,6 @@ import { unimplemented } from '../utils/utils';
 import { Env } from '../config';
 import { PurpleUrlApp } from '../lib/purple-url-app';
 
-
 export const addressSearchApiApp = new PurpleUrlApp('Address Search');
 
 const oldApiPath = '/api/address-search-mfe/';
