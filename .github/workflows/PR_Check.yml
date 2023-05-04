@@ -1,4 +1,4 @@
-ame: PR Check
+Name: PR Check
 
 on:
   pull_request:
