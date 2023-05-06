@@ -6,7 +6,7 @@ on:
 
 jobs:
   call-workflow-passing-data:
-    uses: ts-HelloWorld/.github/workflows/reusable.yml@main
+    uses: ./reusable.yml
     with:
       config-path: .github/labeler.yml
     secrets:
