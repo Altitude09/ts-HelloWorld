@@ -3,28 +3,27 @@ name: diff
 on:
   workflow_dispatch:
     inputs:
-      environment:
-        type: environment
-        description: Select the environment
-      boolean:
-        type: boolean
-        description: True or False
-      choice:
+      logLevel:
+        description: 'Log level'
+        required: true
+        default: 'warning'
         type: choice
-        description: Make a choice
         options:
-        - foo
-        - bar
-        - baz
+        - info
+        - warning
+        - debug
+
 jobs:
-  build:
+  print-inputs:
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v2
-
-      - name: greet
-        run: | 
-          echo "environment is ${{ github.event.inputs.environment }} / ${{ inputs.environment }}"
-          echo "boolean is ${{ github.event.inputs.boolean }}" / ${{ inputs.boolean }} 
-          echo "choice is ${{ github.event.inputs.choice }}" / ${{ inputs.choice }}
+      - name: job summary
+        run: |
+          echo "### inputs" >> $GITHUB_STEP_SUMMARY
+          echo "- logLevel: ${{ inputs.logLevel }}" >> $GITHUB_STEP_SUMMARY
+  run:
+    needs: [print-inputs]
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - run: echo ${{ inputs.logLevel }}
