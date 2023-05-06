@@ -6,7 +6,7 @@ on:
 
 jobs:
   call-workflow-passing-data:
-    uses: ./.github/workflows/reusable.yaml
+    uses: ./.github/workflows/reusable.yml
     with:
       config-path: .github/labeler.yml
     secrets:
