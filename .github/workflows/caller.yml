@@ -1,0 +1,13 @@
+name: caller
+
+on:
+  workflow_dispatch:
+    
+
+jobs:
+  call-workflow-passing-data:
+    uses: ts-HelloWorld/.github/workflows/reusable.yml@main
+    with:
+      config-path: .github/labeler.yml
+    secrets:
+      envPAT: ${{ secrets.envPAT }}
