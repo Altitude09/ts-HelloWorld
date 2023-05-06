@@ -1,0 +1,16 @@
+name: Synth
+
+on:
+  workflow_dispatch:
+
+jobs:
+  synth:
+    name: Synth
+    runs-on:
+      - ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: |
+            echo "prod=Prod" >> "$GITHUB_ENV"
+            echo "test=Test" >> "$GITHUB_ENV"
