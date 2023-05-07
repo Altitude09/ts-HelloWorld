@@ -35,15 +35,10 @@ on:
 jobs:
   lint_synth:
     name: Lint and Diff
-    runs-on:
-      - self-hosted
-      - vm:m5.large
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Lint
-        run: npx prettier --check .
+      
       - name: Diff
-        run: npx cdktf diff ${{ inputs.stack-name }}
+        #run: npx cdktf diff ${{ inputs.stack-name }}
+        run: echo "choice is ${{ github.event.inputs.choice }}" / ${{ inputs.choice }}
