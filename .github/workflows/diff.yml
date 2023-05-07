@@ -41,4 +41,4 @@ jobs:
       
       - name: Diff
         #run: npx cdktf diff ${{ inputs.stack-name }}
-        run: echo "choice is ${{ github.event.inputs.choice }}" / ${{ inputs.choice }}
+        run: echo "choice is ${{ github.event.inputs.stack-name }}" / ${{ inputs.stack-name }}
