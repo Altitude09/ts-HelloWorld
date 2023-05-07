@@ -1,29 +1,49 @@
+#https://github.com/orgs/community/discussions/12029
 name: diff
 
 on:
   workflow_dispatch:
     inputs:
-      logLevel:
-        description: 'Log level'
+      stack-name:
+        description: 'Stack name'
         required: true
         default: 'warning'
         type: choice
         options:
-        - info
-        - warning
-        - debug
+        - dig-plat-dev 
+        - dig-exp-tst 
+        - dig-exp-stub 
+        - dig-exp-sit 
+        - dig-exp-perf 
+        - dig-exp-stg 
+        - dig-plat-prod 
+        - dig-plat-dev-staging-activation-stack 
+        - dig-exp-tst-staging-activation-stack 
+        - dig-exp-stub-staging-activation-stack 
+        - dig-exp-sit-staging-activation-stack 
+        - dig-exp-perf-staging-activation-stack 
+        - dig-exp-stg-staging-activation-stack 
+        - dig-plat-dev-production-activation-stack 
+        - dig-exp-tst-production-activation-stack 
+        - dig-exp-stub-production-activation-stack 
+        - dig-exp-sit-production-activation-stack 
+        - dig-exp-perf-production-activation-stack 
+        - dig-exp-stg-production-activation-stack 
+        - prod-staging-activation-stack 
+        - prod-production-activation-stack
 
 jobs:
-  print-inputs:
-    runs-on: ubuntu-latest
+  lint_synth:
+    name: Lint and Diff
+    runs-on:
+      - self-hosted
+      - vm:m5.large
     steps:
-      - name: job summary
-        run: |
-          echo "### inputs" >> $GITHUB_STEP_SUMMARY
-          echo "- logLevel: ${{ inputs.logLevel }}" >> $GITHUB_STEP_SUMMARY
-  run:
-    needs: [print-inputs]
-    runs-on: ubuntu-latest
-    environment: production
-    steps:
-      - run: echo ${{ inputs.logLevel }}
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npx prettier --check .
+      - name: Diff
+        run: npx cdktf diff ${{ inputs.stack-name }}
